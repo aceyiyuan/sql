@@ -2,6 +2,7 @@
 #käynnistä xampp xampp-control.exe
 #start apache and mysql
 #click Apache admin phpmyadmin
+#mariadbilla on autocommit. if disable autocommit run conn.autocommit=False
 
 # Connect to MariaDB Platform
 
@@ -64,3 +65,5 @@ for row in cur.fetchall():
     vuosi=row[1]
     score=row[-1]
 print(f"Paras Monty Pythoin elokuva on '{nimi}' vuodesta {vuosi} and {score}")
+
+conn.close()
