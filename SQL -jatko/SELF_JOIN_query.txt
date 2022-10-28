@@ -1,0 +1,9 @@
+Write a query that gets employee_id as 'Employee ID', the full name of the employee as 'Employee', the full name of the manager as 'Manager' and the name of employee's department.
+Hint: You will have to join the employee table with itself and with the departments table.
+
+
+SELECT E.employee_id AS 'Employee ID', E.first_name || ' ' || E.last_name AS 'Employee', M.first_name || ' ' || M.last_name AS 'Manager', depart_name AS 'Department' from employees AS E LEFT JOIN employees AS M ON E.manager_id=M.employee_id JOIN departments USING(department_id);
+
+
+- First join needs to be a LEFT JOIN because the CEO of the company doesn't have a manager.
+- Can't use NATURAL JOIN between employees and departments because they have two fields in common department_id and manager_id.
